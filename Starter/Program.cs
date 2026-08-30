@@ -233,7 +233,7 @@ do
                     animalNickname = readResult.ToLower();
                     if (animalNickname == "")
                     {
-                        animalNickname = "tdb";
+                        animalNickname = "tbd";
                     }
                 }
             } while (animalNickname == "");
