@@ -228,15 +228,26 @@ do
             {
                 Console.WriteLine("Enter a nickname for the pet");
                 readResult = Console.ReadLine();
-                if(animalNickname != null)
+                if (readResult != null)
                 {
-                    animalNickname=readResult.ToLower();
+                    animalNickname = readResult.ToLower();
                     if (animalNickname == "")
                     {
                         animalNickname = "tdb";
                     }
                 }
             } while (animalNickname == "");
+            //  ===========================================================
+
+            //  ===========================================================
+            // info of new pet
+            // store the pet information in the ourAnimals array (zero based)
+            ourAnimals[petCount, 0] = "ID #: " + animalID;
+            ourAnimals[petCount, 1] = "Species: " + animalSpecies;
+            ourAnimals[petCount, 2] = "Age: " + animalAge;
+            ourAnimals[petCount, 3] = "Nickname: " + animalNickname;
+            ourAnimals[petCount, 4] = "Physical description: " + animalPhysicalDescription;
+            ourAnimals[petCount, 5] = "Personality: " + animalPersonalityDescription;
             //  ===========================================================
 
             //  ===========================================================
