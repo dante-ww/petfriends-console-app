@@ -140,6 +140,10 @@ do
             {
                 Console.WriteLine($"We currently have {petCount} pets that need homes. We can manage {availableSlots} more.");
             }
+            //  ===========================================================
+
+            //  ===========================================================
+            // animal specie
             bool validEntry = false;
             do
             {
@@ -158,7 +162,11 @@ do
                     }
                 }
             } while (!validEntry);
+            //  ===========================================================
 
+
+            //  ===========================================================
+            // age in animals
             animalID = animalSpecies.Substring(0, 1) + (petCount + 1).ToString();
             do
             {
@@ -178,7 +186,61 @@ do
                     }
                 }
             } while (!validEntry);
-            
+            //  ===========================================================
+
+            //  ===========================================================
+            // physical description
+            do
+            {
+                Console.WriteLine("Enter a physical description of the pet (size, color, gender, weight, housebroken)");
+                readResult = Console.ReadLine();
+                if (readResult != null)
+                {
+                    animalPhysicalDescription = readResult.ToLower();
+                    if (animalPhysicalDescription == "")
+                    {
+                        animalPhysicalDescription = "tbd";
+                    }
+                }
+            } while (animalPhysicalDescription == "");
+            //  ===========================================================
+
+            //  ===========================================================
+            // personality description
+            do
+            {
+                Console.WriteLine("Enter a description of the pet's personality (likes or dislikes, tricks, energy level)");
+                readResult = Console.ReadLine();
+                if (readResult != null)
+                {
+                    animalPersonalityDescription = readResult.ToLower();
+                    if (animalPersonalityDescription == "")
+                    {
+                        animalPersonalityDescription = "tbd";
+                    }
+                }
+            } while (animalPersonalityDescription == "");
+            //  ===========================================================
+
+            //  ===========================================================
+            // nickname
+            do
+            {
+                Console.WriteLine("Enter a nickname for the pet");
+                readResult = Console.ReadLine();
+                if(animalNickname != null)
+                {
+                    animalNickname=readResult.ToLower();
+                    if (animalNickname == "")
+                    {
+                        animalNickname = "tdb";
+                    }
+                }
+            } while (animalNickname == "");
+            //  ===========================================================
+
+            //  ===========================================================
+            // pet count
             while (anotherPet == "y" && petCount < maxPets)
             {
                 petCount += 1;
@@ -201,6 +263,7 @@ do
                 Console.WriteLine("Press the Enter key to continue.");
                 readResult = Console.ReadLine();
             }
+            //  ===========================================================
             break;
 
         case "3":
