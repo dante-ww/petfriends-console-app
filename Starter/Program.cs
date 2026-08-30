@@ -1,5 +1,6 @@
 // the ourAnimals array will store the following: 
 using System.Collections;
+using System.Diagnostics;
 
 string animalSpecies = "";
 string animalID = "";
@@ -139,6 +140,45 @@ do
             {
                 Console.WriteLine($"We currently have {petCount} pets that need homes. We can manage {availableSlots} more.");
             }
+            bool validEntry = false;
+            do
+            {
+                Console.WriteLine($"\nEnter \"dog\" or \"cat\" to begin a new entry");
+                readResult = Console.ReadLine();
+                if (readResult != null)
+                {
+                    animalSpecies = readResult.ToLower();
+                    if (animalSpecies != "dog" && animalSpecies != "cat")
+                    {
+                        validEntry = false;
+                    }
+                    else
+                    {
+                        validEntry = true;
+                    }
+                }
+            } while (!validEntry);
+
+            animalID = animalSpecies.Substring(0, 1) + (petCount + 1).ToString();
+            do
+            {
+                int petAge;
+                Console.WriteLine("Enter the pet's age or enter ? if unknown");
+                readResult = Console.ReadLine();
+                if (readResult != null)
+                {
+                    animalAge = readResult;
+                    if (animalAge != "?")
+                    {
+                        validEntry = int.TryParse(animalAge, out petAge);
+                    }
+                    else
+                    {
+                        validEntry = true;
+                    }
+                }
+            } while (!validEntry);
+            
             while (anotherPet == "y" && petCount < maxPets)
             {
                 petCount += 1;
