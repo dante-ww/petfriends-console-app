@@ -7,6 +7,8 @@ Project developed as part of the C# certification by **freeCodeCamp & Microsoft*
 - **Active options:**
   - `1`: List all registered pet information.
   - `2`: Add a new pet with input validation.
+  - `3`: Add age and physical descriptions if they are empty.
+  - `4`: Add nicknames and personality descriptions if they are empty.
 - **Data storage:** 2D array (`string[,]`) to store up to 8 pets with 6 fields each.
 
 ### Next steps
