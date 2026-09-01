@@ -307,10 +307,15 @@ do
                         {
                             Console.WriteLine($"Enter an Physical description for {ourAnimals[i, 0]}: (size, color, breed, gender, weight, housebroken)");
                             readResult = Console.ReadLine();
-                            if (readResult != null && readResult.Trim() != null)
+                            if (!string.IsNullOrWhiteSpace(readResult))
                             {
                                 ourAnimals[i, 4] = "Physical description: " + readResult.Trim();
                                 validEntry = true;
+                            }
+                            else
+                            {
+                                validEntry = false;
+                                Console.WriteLine("This option cannot be empty, try again please.");
                             }
                         } while (!validEntry);
                     }
@@ -323,7 +328,49 @@ do
 
         case "4":
             // Ensure animal nicknames and personality descriptions are complete
-            Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 0] != "ID #: ")
+                {
+                    if (ourAnimals[i, 5] == "Personality: " || ourAnimals[i, 5] == "Personality: tbd")
+                    {
+                        do
+                        {
+                            Console.WriteLine($"Enter an Personality description for {ourAnimals[i, 0]}: (likes or dislikes, tricks, energy level)");
+                            readResult = Console.ReadLine();
+                            if (!string.IsNullOrWhiteSpace(readResult))
+                            {
+                                ourAnimals[i, 5] = "Personality: " + readResult.Trim();
+                                validEntry = true;
+                            }
+                            else
+                            {
+                                validEntry = false;
+                                Console.WriteLine("This option cannot be empty, try again please.");
+                            }
+                        } while (!validEntry);
+                    }
+                    if (ourAnimals[i, 3] == "Nickname: ")
+                    {
+                        do
+                        {
+                            Console.WriteLine($"Enter a nickname for {ourAnimals[i, 0]}:");
+                            readResult = Console.ReadLine();
+                            if (!string.IsNullOrWhiteSpace(readResult))
+                            {
+                                ourAnimals[i, 3] = "Nickname: " + readResult.Trim();
+                                validEntry = true;
+                            }
+                            else
+                            {
+                                validEntry = false;
+                                Console.WriteLine("This option cannot be empty, try again please.");
+                            }
+                        } while (!validEntry);
+                    }
+                }
+            }
+            Console.WriteLine("Nickname and personality description fields are complete for all of our friends.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
